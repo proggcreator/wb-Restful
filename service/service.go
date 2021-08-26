@@ -1,15 +1,16 @@
 package service
 
 import (
+	restful "github.com/proggcreator/wb-Restful"
 	"github.com/proggcreator/wb-Restful/repository"
 )
 
 type RestfulEmployee interface {
-	/*Create(userIdint, employee restful.Employee) (int, error)
-	GetAll(userId int) ([]restful.Employee, error)
-	GetById(userId int) (restful.Employee, error)
-	Delete(userId int) error
-	Update(userId int, newemployee restful.Employee) error*/
+	CreateEmpl(employee restful.Employee) (int, error)
+	GetAllEmpl(userId int) ([]restful.Employee, error)
+	GetByIdEmpl(userId int) (restful.Employee, error)
+	DeleteEmpl(userId int) error
+	UpdateEmpl(userId int, newemployee restful.Employee) error
 }
 type Service struct {
 	RestfulEmployee

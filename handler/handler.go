@@ -20,9 +20,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	{
 		mylists := api.Group("/api/v1", h.checkClaim)
 		{
-			mylists.POST("/employee_add", h.employee_add)
+			mylists.POST("/employee_add", h.checkJsonType, h.employee_add)
 			mylists.DELETE("/employee_remove", h.employee_remove)
-			mylists.PUT("/employee_upd", h.employee_upd)
+			mylists.PUT("/employee_upd", h.checkJsonType, h.employee_upd)
 			mylists.GET("/get_all", h.get_all)
 			mylists.PUT("/employee_get", h.employee_get)
 		}
