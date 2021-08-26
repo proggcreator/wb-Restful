@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	restful "github.com/proggcreator/wb-Restful"
 	"github.com/proggcreator/wb-Restful/handler"
@@ -17,11 +16,6 @@ func main() {
 
 	if err := initConfig(); err != nil {
 		logrus.Fatalf("error initializing configs: %s", err.Error())
-	}
-
-	//load variables env
-	if err := godotenv.Load(); err != nil {
-		logrus.Fatalf("error loading env variables: %s", err.Error())
 	}
 
 	db, err := repository.NewPostgresDB(repository.Config{

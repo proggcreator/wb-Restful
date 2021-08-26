@@ -1,6 +1,9 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/proggcreator/wb-Restful/service"
+)
 
 type Handler struct {
 	services *service.Service
@@ -15,13 +18,13 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	api := router.Group("/")
 	{
-		lists := api.Group("/api/v1")
+		mylists := api.Group("/api/v1")
 		{
-			lists.POST("/employee_add", h.employee_add)
-			lists.DELETE("/employee_remove", h.employee_remove)
-			lists.PUT("/employee_upd", h.employee_upd)
-			lists.GET("/get_all", h.get_all)
-			lists.PUT("/employee_get", h.employee_get)
+			mylists.POST("/employee_add", h.employee_add)
+			mylists.DELETE("/employee_remove", h.employee_remove)
+			mylists.PUT("/employee_upd", h.employee_upd)
+			mylists.GET("/get_all", h.get_all)
+			mylists.PUT("/employee_get", h.employee_get)
 
 		}
 
