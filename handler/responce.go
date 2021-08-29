@@ -7,15 +7,13 @@ import (
 )
 
 type JsonError struct {
-	ID     string `json:"id"`
 	Status int    `json:"status"`
-	Code   string `json:"code`
 	Title  string `json:"title"`
 	Detail string `json:"detail"`
 }
 
-func NewJsonError(c *gin.Context, curerr JsonError, intcode int) {
+func NewJsonError(c *gin.Context, curerr JsonError) {
 	logrus.Error(curerr)
 	//stop next handlers, write responce
-	c.AbortWithStatusJSON(intcode, curerr)
+	c.AbortWithStatusJSON(curerr.Status, curerr)
 }
