@@ -5,7 +5,7 @@ import (
 	restful "github.com/proggcreator/wb-Restful"
 )
 
-type RestfulEmployee interface {
+type EmplWork interface {
 	CreateEmpl(employee restful.Employee) (int, error)
 	GetAllEmpl() ([]restful.Employee, error)
 	GetByIdEmpl(userId int) (restful.Employee, error)
@@ -13,9 +13,11 @@ type RestfulEmployee interface {
 	UpdateEmpl(userId int, newemployee restful.Employee) error
 }
 type Repository struct {
-	RestfulEmployee
+	EmplWork
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
-	return &Repository{}
+	return &Repository{
+		EmplWork: NewEmplWorkPostgres(db),
+	}
 }

@@ -5,18 +5,18 @@ import (
 	"github.com/proggcreator/wb-Restful/repository"
 )
 
-type EmplWork struct {
-	repo repository.Repository
+type EmplWorkService struct {
+	repo repository.EmplWork
 }
 
-func NewEmplWork(repo repository.Repository) *EmplWork {
-	return &EmplWork{repo: repo}
+func NewEmplWorkService(repo repository.EmplWork) *EmplWorkService {
+	return &EmplWorkService{repo: repo}
 }
 
-func (s *EmplWork) CreateEmpl(empl restful.Employee) (int, error) {
+func (s *EmplWorkService) CreateEmpl(empl restful.Employee) (int, error) {
 	return s.repo.CreateEmpl(empl)
 }
 
-func (s *EmplWork) GetAllEmpl() ([]restful.Employee, error) {
+func (s *EmplWorkService) GetAllEmpl() ([]restful.Employee, error) {
 	return s.repo.GetAllEmpl()
 }

@@ -5,7 +5,7 @@ import (
 	"github.com/proggcreator/wb-Restful/repository"
 )
 
-type RestfulEmployee interface {
+type EmplWork interface {
 	CreateEmpl(employee restful.Employee) (int, error)
 	GetAllEmpl() ([]restful.Employee, error)
 	GetByIdEmpl(userId int) (restful.Employee, error)
@@ -13,9 +13,10 @@ type RestfulEmployee interface {
 	UpdateEmpl(userId int, newemployee restful.Employee) error
 }
 type Service struct {
-	RestfulEmployee
+	EmplWork
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		EmplWork: NewEmplWorkService(repos.EmplWork)}
 }

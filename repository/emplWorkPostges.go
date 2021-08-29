@@ -16,10 +16,10 @@ func NewEmplWorkPostgres(db *sqlx.DB) *EmplWorkPostgres {
 }
 
 func (s *EmplWorkPostgres) CreateEmpl(empl restful.Employee) error {
-	exampleEmp := restful.retEmployee()
+
 	rows, err := s.db.Query("SELECT * FROM employees.employee_add ($1,$2,$3,$4,$5,$6,$7)",
-		exampleEmp.Id, exampleEmp.Name, exampleEmp.Last_name, exampleEmp.Patronymic,
-		exampleEmp.Phone, exampleEmp.Position, exampleEmp.Good_job_count)
+		empl.Id, empl.Name, empl.Last_name, empl.Patronymic,
+		empl.Phone, empl.Position, empl.Good_job_count)
 	if err != nil {
 		return err
 	}

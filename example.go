@@ -1,6 +1,6 @@
 package restful
 
-func retEmployee() Employee {
+func RetEmployee() Employee {
 	return Employee{
 		Id:             57,
 		Name:           "John",
