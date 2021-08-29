@@ -7,5 +7,5 @@ type Employee struct {
 	Patronymic     string
 	Phone          string
 	Position       string
-	Good_job_count int
+	Good_job_count string
 }

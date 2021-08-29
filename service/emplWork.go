@@ -16,3 +16,7 @@ func NewEmplWork(repo repository.Repository) *EmplWork {
 func (s *EmplWork) CreateEmpl(empl restful.Employee) (int, error) {
 	return s.repo.CreateEmpl(empl)
 }
+
+func (s *EmplWork) GetAllEmpl() ([]restful.Employee, error) {
+	return s.repo.GetAllEmpl()
+}

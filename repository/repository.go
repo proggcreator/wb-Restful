@@ -7,7 +7,7 @@ import (
 
 type RestfulEmployee interface {
 	CreateEmpl(employee restful.Employee) (int, error)
-	GetAllEmpl(userId int) ([]restful.Employee, error)
+	GetAllEmpl() ([]restful.Employee, error)
 	GetByIdEmpl(userId int) (restful.Employee, error)
 	DeleteEmpl(userId int) error
 	UpdateEmpl(userId int, newemployee restful.Employee) error

@@ -9,7 +9,7 @@ import (
 )
 
 func (h *Handler) employee_add(c *gin.Context) {
-
+curEmpl:=
 }
 
 func (h *Handler) employee_remove(c *gin.Context) {
