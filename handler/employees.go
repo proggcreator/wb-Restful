@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"time"
@@ -92,6 +93,24 @@ func (h *Handler) employee_get(c *gin.Context) {
 
 }
 
+type infoApp struct {
+	name    string
+	version string
+}
+
 func (h *Handler) employee_tech(c *gin.Context) {
 
+	mystr := infoApp{
+		name:    "employees",
+		version: "1.0.0",
+	}
+	b, err := json.Marshal(mystr)
+	if err != nil {
+		NewJsonError(c, JsonError{
+			Status: http.StatusBadRequest,
+			Title:  "BadRequest",
+			Detail: "error marshal"})
+		return
+	}
+	fmt.Fprint(c.Writer, b)
 }
