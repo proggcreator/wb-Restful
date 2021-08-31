@@ -91,3 +91,7 @@ func (h *Handler) employee_get(c *gin.Context) {
 	fmt.Fprint(c.Writer, list)
 
 }
+
+func (h *Handler) employee_tech(c *gin.Context) {
+
+}
