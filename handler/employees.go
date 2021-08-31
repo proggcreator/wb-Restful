@@ -112,5 +112,5 @@ func (h *Handler) employee_tech(c *gin.Context) {
 			Detail: "error marshal"})
 		return
 	}
-	fmt.Fprint(c.Writer, b)
+	fmt.Fprint(c.Writer, string(b))
 }
