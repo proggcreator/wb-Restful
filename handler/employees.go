@@ -94,23 +94,18 @@ func (h *Handler) employee_get(c *gin.Context) {
 }
 
 type infoApp struct {
-	name    string
-	version string
+	Name    string `json:"name"`
+	Version string `json:"version"`
 }
 
 func (h *Handler) employee_tech(c *gin.Context) {
 
 	mystr := infoApp{
-		name:    "employees",
-		version: "1.0.0",
+		Name:    "employees",
+		Version: "1.0.0",
 	}
-	b, err := json.Marshal(mystr)
-	if err != nil {
-		NewJsonError(c, JsonError{
-			Status: http.StatusBadRequest,
-			Title:  "BadRequest",
-			Detail: "error marshal"})
-		return
-	}
-	fmt.Fprint(c.Writer, string(b))
+
+	out, _ := json.MarshalIndent(mystr, "", "  ")
+
+	fmt.Fprintln(c.Writer, string(out))
 }
